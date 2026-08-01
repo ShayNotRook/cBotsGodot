@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://mh8jo32f72ow"]
+
+[node name="GameWorld" type="Node2D" unique_id=904990312]
+
+[node name="World" type="Node2D" parent="." unique_id=1485603075]
+
+[node name="Factory" type="Node2D" parent="World" unique_id=510119092]
+
+[node name="Ground" type="Node2D" parent="World/Factory" unique_id=599352697]
+
+[node name="Walls" type="Node2D" parent="World/Factory" unique_id=1686183942]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=665323870]
+
+[node name="PopUp" type="CanvasLayer" parent="." unique_id=186393097]
