@@ -7,7 +7,7 @@ signal building_tapped(building: Building)
 @export var display_name: String = ""
 @export var description: String = ""
 
-@onready var tap_area: Area2D
+@onready var tap_area: Area2D = %TapArea
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

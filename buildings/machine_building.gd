@@ -17,7 +17,7 @@ var rate_progress: float = 0.0
 var capacity_current: int = 0
 var machine_state: State = State.MINING
 
-@onready var progress_bar: ProgressBar = %RateProgressBar
+@onready var progress_bar: ProgressBar = %RateBar
 @onready var capacity_bar: ProgressBar = %CapacityBar
 
 func _process(delta: float) -> void:
