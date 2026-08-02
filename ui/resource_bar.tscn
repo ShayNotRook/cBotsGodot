@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://csfv4gc75qttk"]
+
+[ext_resource type="Script" uid="uid://dbrpp103ngtng" path="res://ui/resource_bar.gd" id="1_47je6"]
+[ext_resource type="Texture2D" uid="uid://b0t54e4d7q0cp" path="res://assets/back_bar.png" id="1_amhkg"]
+[ext_resource type="Texture2D" uid="uid://2htnub4qwmbl" path="res://assets/Fill_bar.png" id="2_f5fky"]
+
+[node name="Resource" type="Control" unique_id=589939091]
+custom_minimum_size = Vector2(280, 66)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_47je6")
+
+[node name="Bar" type="TextureProgressBar" parent="." unique_id=1673303058]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 66)
+layout_mode = 1
+offset_right = 280.0
+offset_bottom = 66.0
+texture_under = ExtResource("1_amhkg")
+texture_progress = ExtResource("2_f5fky")
+texture_progress_offset = Vector2(4, 4)

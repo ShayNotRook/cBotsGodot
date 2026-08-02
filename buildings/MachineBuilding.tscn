@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bka61j8c6f587"]
+
+[ext_resource type="PackedScene" uid="uid://drtwemp6aej32" path="res://buildings/Building.tscn" id="1_q4ica"]
+[ext_resource type="Script" uid="uid://bfymepmexfh6k" path="res://buildings/machine_building.gd" id="2_64i05"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2rdmk"]
+radius = 67.0
+height = 156.0
+
+[node name="MachineBuilding" unique_id=1124357326 instance=ExtResource("1_q4ica")]
+script = ExtResource("2_64i05")
+capacity_max = 1000
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="0" unique_id=1128715352]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" index="0" unique_id=1401772767]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="1" unique_id=1130685164]
+shape = SubResource("CapsuleShape2D_2rdmk")
+
+[node name="CapacityBar" type="ProgressBar" parent="." index="2" unique_id=890570533]
+unique_name_in_owner = true
+offset_left = 113.0
+offset_top = -46.0
+offset_right = 124.0
+offset_bottom = 46.0
+fill_mode = 3
+show_percentage = false

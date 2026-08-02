@@ -1,5 +1,5 @@
 class_name Building
-extends Node
+extends Node2D
 
 signal building_tapped(building: Building)
 
@@ -11,6 +11,7 @@ signal building_tapped(building: Building)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("Building ready: ", display_name)
 	tap_area.input_pickable = true
 	tap_area.input_event.connect(_on_tap_area_event)
 
