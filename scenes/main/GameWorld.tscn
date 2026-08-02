@@ -2,8 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cd60lt0p510eg" path="res://assets/tilesheets/ground_base.png" id="1_spis8"]
 [ext_resource type="Texture2D" uid="uid://lcvelfkcre3w" path="res://assets/tilesheets/walls_base.png" id="2_kxgpe"]
-[ext_resource type="PackedScene" uid="uid://cm3s8jg02mea" path="res://buildings/Miner.tscn" id="3_oonwy"]
+[ext_resource type="PackedScene" uid="uid://bq44jdaju7h5s" path="res://buildings/scenes/Miner.tscn" id="3_oonwy"]
 [ext_resource type="PackedScene" uid="uid://c7ig1g1v54mqw" path="res://scenes/main/npcs/MainCharacter.tscn" id="3_rs23h"]
+[ext_resource type="PackedScene" uid="uid://cytrbr06u8gu8" path="res://buildings/scenes/Storage.tscn" id="4_cpkm4"]
+[ext_resource type="PackedScene" uid="uid://csfv4gc75qttk" path="res://ui/resource_bar.tscn" id="6_t07um"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kxgpe"]
 texture = ExtResource("1_spis8")
@@ -65,13 +67,56 @@ tile_map_data = PackedByteArray("AAD/////BAADAAAAAAD//wAABAADAAAAAAD+/wEABAADAAA
 tile_set = SubResource("TileSet_13up3")
 collision_enabled = false
 
-[node name="Miner" parent="World/Factory/Walls" unique_id=1821846275 instance=ExtResource("3_oonwy")]
-position = Vector2(1169, 36)
+[node name="Machines" type="Node2D" parent="World/Factory/Walls" unique_id=1921972806]
+
+[node name="Woods" type="Node2D" parent="World/Factory/Walls/Machines" unique_id=738022909]
+
+[node name="WoodMiner" parent="World/Factory/Walls/Machines/Woods" unique_id=1124357326 instance=ExtResource("3_oonwy")]
+position = Vector2(1024, -16)
+out_item_id = "wood"
+capacity_max = 20
+
+[node name="WoodStorage" parent="World/Factory/Walls/Machines/Woods" unique_id=882234673 instance=ExtResource("4_cpkm4")]
+position = Vector2(1226, 79)
+material_type = "wood"
+
+[node name="Stones" type="Node2D" parent="World/Factory/Walls/Machines" unique_id=1704741077]
+
+[node name="StoneMiner" parent="World/Factory/Walls/Machines/Stones" unique_id=91799236 instance=ExtResource("3_oonwy")]
+visibility_layer = 2
+y_sort_enabled = true
+position = Vector2(142, 24)
+out_item_id = "stone"
+capacity_max = 30
+
+[node name="StoneStorage" parent="World/Factory/Walls/Machines/Stones" unique_id=337239095 instance=ExtResource("4_cpkm4")]
+y_sort_enabled = true
+position = Vector2(384, -103)
+material_type = "stone"
 
 [node name="MainCharacter" parent="World/Factory" unique_id=1230722659 instance=ExtResource("3_rs23h")]
 position = Vector2(758, 208)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=665323870]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD" unique_id=135676803]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 313.0
+offset_top = 24.0
+offset_right = 282.0
+offset_bottom = 66.0
+grow_horizontal = 2
+theme_override_constants/separation = 12
+
+[node name="PrimaryBar" parent="HUD/HBoxContainer" unique_id=589939091 instance=ExtResource("6_t07um")]
+layout_mode = 2
+material_type = "wood"
+
+[node name="Resource" parent="HUD/HBoxContainer" unique_id=714245166 instance=ExtResource("6_t07um")]
+layout_mode = 2
+material_type = "stone"
 
 [node name="PopUp" type="CanvasLayer" parent="." unique_id=186393097]
 
