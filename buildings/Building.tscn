@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://drtwemp6aej32"]
+
+[ext_resource type="Script" uid="uid://dcg84ysjyu5gk" path="res://buildings/building.gd" id="1_i30xf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2rdmk"]
+radius = 84.0
+
+[node name="Building" type="Node2D" unique_id=1124357326]
+script = ExtResource("1_i30xf")
+
+[node name="TapArea" type="Area2D" parent="." unique_id=1008937670]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapArea" unique_id=720572491]
+shape = SubResource("CircleShape2D_2rdmk")

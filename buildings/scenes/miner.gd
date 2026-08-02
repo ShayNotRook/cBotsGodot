@@ -1,19 +1,31 @@
+class_name Miner
 extends MachineBuilding
 
 signal collected(quantity: int)
 signal rate_progressed(value: float)
 
-@export var cycle_duration: float = 5.0
+
+@export var cycle_duration: float = 1.0
+
+@export var out_item_id: String = ""
+@export var chunk_amount: int = 10
+
+
+@onready var progress_bar: ProgressBar = %RateBar
+@onready var capacity_bar: ProgressBar = %CapacityBar
 
 var rate_progress: float = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	super._ready()
+	print("Miner Ready")
+
 
 
 func _process(delta: float) -> void:
-	if machine_state == State.FULL:
+	if machine_state != State.MINING:
 		return
+		
 	rate_progress += delta / cycle_duration
 	if rate_progress >= 1.0:
 		rate_progress -= 1.0
@@ -37,3 +49,10 @@ func _collect() -> void:
 	capacity_current = 0
 	capacity_bar.value = 0
 	machine_state = State.MINING
+	
+	
+func interact() -> void:
+	if machine_state == State.FULL:
+		_collect()
+	else:
+		super.interact()
