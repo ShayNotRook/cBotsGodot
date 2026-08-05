@@ -68,6 +68,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64i05"]
+bg_color = Color(0.14384526, 0.33521566, 0.15869819, 1)
+
 [node name="Miner" unique_id=1124357326 instance=ExtResource("1_anvom")]
 script = ExtResource("1_c1qou")
 cycle_duration = 1.0
@@ -86,5 +89,6 @@ offset_left = 95.0
 offset_top = -46.0
 offset_right = 106.0
 offset_bottom = 43.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_64i05")
 fill_mode = 3
 show_percentage = false
