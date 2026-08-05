@@ -1,11 +1,20 @@
 [gd_scene format=4 uid="uid://mh8jo32f72ow"]
 
+[ext_resource type="Script" uid="uid://73i2wxiq57w" path="res://scenes/main/game_world.gd" id="1_mcmen"]
 [ext_resource type="Texture2D" uid="uid://cd60lt0p510eg" path="res://assets/tilesheets/ground_base.png" id="1_spis8"]
 [ext_resource type="Texture2D" uid="uid://lcvelfkcre3w" path="res://assets/tilesheets/walls_base.png" id="2_kxgpe"]
 [ext_resource type="PackedScene" uid="uid://bq44jdaju7h5s" path="res://buildings/scenes/Miner.tscn" id="3_oonwy"]
 [ext_resource type="PackedScene" uid="uid://c7ig1g1v54mqw" path="res://scenes/main/npcs/MainCharacter.tscn" id="3_rs23h"]
 [ext_resource type="PackedScene" uid="uid://cytrbr06u8gu8" path="res://buildings/scenes/Storage.tscn" id="4_cpkm4"]
 [ext_resource type="PackedScene" uid="uid://csfv4gc75qttk" path="res://ui/resource_bar.tscn" id="6_t07um"]
+[ext_resource type="PackedScene" uid="uid://c3l7b3sv7jnwd" path="res://ui/profile/Profile.tscn" id="7_kw33e"]
+[ext_resource type="Texture2D" uid="uid://cran1bn0lrmif" path="res://assets/inventory_icons/chest2.png" id="7_o1uvp"]
+[ext_resource type="Texture2D" uid="uid://bl0akd5j183nt" path="res://assets/inventory_icons/potion.png" id="8_yuwmk"]
+[ext_resource type="Texture2D" uid="uid://pps6bxq1ol0j" path="res://assets/ui/hud_icons/american-shield.png" id="9_8fhol"]
+[ext_resource type="Texture2D" uid="uid://buauui20xjske" path="res://assets/inventory_icons/sword.png" id="10_mcmen"]
+[ext_resource type="Script" uid="uid://duhwdnosaylhv" path="res://scenes/main/upgrade_tab_container.gd" id="12_8fhol"]
+[ext_resource type="PackedScene" uid="uid://eg0gt2te4xes" path="res://ui/tabs/UpgradeTab.tscn" id="12_yuwmk"]
+[ext_resource type="PackedScene" uid="uid://m5v2kl5px7jt" path="res://buildings/scenes/Furnace.tscn" id="15_3ao3o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kxgpe"]
 texture = ExtResource("1_spis8")
@@ -47,7 +56,42 @@ tile_shape = 1
 tile_size = Vector2i(256, 128)
 sources/4 = SubResource("TileSetAtlasSource_rs23h")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1liwd"]
+bg_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb7j8"]
+bg_color = Color(0.38625076, 0.38625088, 0.38625073, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlfsw"]
+bg_color = Color(0.2673042, 0.26730424, 0.2673041, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wqhm"]
+bg_color = Color(0.23537049, 0.23537055, 0.23537043, 1)
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2rdmk"]
+bg_color = Color(0, 0, 0, 0.7019608)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rdmk"]
+size = Vector2(1287, 719)
+
 [node name="GameWorld" type="Node2D" unique_id=904990312]
+script = ExtResource("1_mcmen")
 
 [node name="World" type="Node2D" parent="." unique_id=1485603075]
 
@@ -56,27 +100,25 @@ sources/4 = SubResource("TileSetAtlasSource_rs23h")
 [node name="Ground" type="Node2D" parent="World/Factory" unique_id=599352697]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="World/Factory/Ground" unique_id=1606541872]
-tile_map_data = PackedByteArray("AAAAAAEABAAAAAMAAAAAAAAABAAAAAMAAAD//wEABAAAAAMAAAAAAAIABAAAAAMAAAD//wMABAAAAAMAAAAAAAQABAAAAAMAAAAAAAMABAAAAAMAAAABAAIABAAAAAMAAAABAAMABAAAAAMAAAACAAIABAAAAAMAAAACAAEABAAAAAMAAAACAAAABAAAAAMAAAABAAAABAAAAAMAAAAAAP//BAAAAAMAAAD//wQABAAAAAMAAAD//wUABAAAAAMAAAAAAAYABAAAAAMAAAAAAAUABAAAAAMAAAABAAYABAAAAAMAAAABAAUABAAAAAMAAAACAAQABAAAAAMAAAACAAMABAAAAAMAAAABAAQABAAAAAMAAAAAAAcABAAAAAMAAAABAAgABAAAAAMAAAABAAcABAAAAAMAAAACAAYABAAAAAMAAAACAAUABAAAAAMAAAADAAQABAAAAAMAAAADAAMABAAAAAMAAAADAAIABAAAAAMAAAABAAEABAAAAAMAAAABAAkABAAAAAMAAAACAAgABAAAAAMAAAACAAkABAAAAAMAAAADAAgABAAAAAMAAAADAAkABAAAAAMAAAAEAAgABAAAAAMAAAADAAcABAAAAAMAAAAEAAYABAAAAAMAAAADAAUABAAAAAMAAAAEAAQABAAAAAMAAAAEAAIABAAAAAMAAAADAAEABAAAAAMAAAADAAAABAAAAAMAAAD//wcABAAAAAMAAAAAAAgABAAAAAMAAAD//wkABAAAAAMAAAAAAAoABAAAAAMAAAAAAAkABAAAAAMAAAABAAoABAAAAAMAAAACAAcABAAAAAMAAAADAAYABAAAAAMAAAADAP//BAAAAAMAAAADAP7/BAAAAAMAAAACAP//BAAAAAMAAAACAP7/BAAAAAMAAAABAP//BAAAAAMAAAAEAAAABAAAAAMAAAAEAAEABAAAAAMAAAAEAAMABAAAAAMAAAAEAAUABAAAAAMAAAAEAAcABAAAAAMAAAABAAsABAAAAAMAAAAAAAsABAAAAAMAAAACAAoABAAAAAMAAAADAAoABAAAAAMAAAACAAsABAAAAAMAAAACAAwABAAAAAMAAAABAAwABAAAAAMAAAAFAAQABAAAAAMAAAAFAAIABAAAAAMAAAACAP3/BAAAAAMAAAABAP3/BAAAAAMAAAABAP7/BAAAAAMAAAD//wIABAAAAAMAAAD+/wMABAAAAAMAAAD//wYABAAAAAMAAAD//wgABAAAAAMAAAD+/wcABAAAAAMAAAD+/wUABAAAAAMAAAAFAAYABAAAAAMAAAACAA0ABAAAAAMAAAADAAwABAAAAAMAAAABAA0ABAAAAAMAAAADAAsABAAAAAMAAAAEAAoABAAAAAMAAAAEAAkABAAAAAMAAAAFAAgABAAAAAMAAAAFAAcABAAAAAMAAAAFAAUABAAAAAMAAAAFAAMABAAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAEABAAAAAMAAAAAAAAABAAAAAMAAAD//wEABAAAAAMAAAAAAAIABAAAAAMAAAD//wMABAAAAAMAAAAAAAQABAAAAAMAAAAAAAMABAAAAAMAAAABAAIABAAAAAMAAAABAAMABAAAAAMAAAACAAIABAAAAAMAAAACAAEABAAAAAMAAAACAAAABAAAAAMAAAABAAAABAAAAAMAAAAAAP//BAAAAAMAAAD//wQABAAAAAMAAAD//wUABAAAAAMAAAAAAAYABAAAAAMAAAAAAAUABAAAAAMAAAABAAYABAAAAAMAAAABAAUABAAAAAMAAAACAAQABAAAAAMAAAACAAMABAAAAAMAAAABAAQABAAAAAMAAAAAAAcABAAAAAMAAAABAAgABAAAAAMAAAABAAcABAAAAAMAAAACAAYABAAAAAMAAAACAAUABAAAAAMAAAADAAQABAAAAAMAAAADAAMABAAAAAMAAAADAAIABAAAAAMAAAABAAEABAAAAAMAAAABAAkABAAAAAMAAAACAAgABAAAAAMAAAACAAkABAAAAAMAAAADAAgABAAAAAMAAAADAAkABAAAAAMAAAAEAAgABAAAAAMAAAADAAcABAAAAAMAAAAEAAYABAAAAAMAAAADAAUABAAAAAMAAAAEAAQABAAAAAMAAAAEAAIABAAAAAMAAAADAAEABAAAAAMAAAADAAAABAAAAAMAAAD//wcABAAAAAMAAAAAAAgABAAAAAMAAAD//wkABAAAAAMAAAAAAAoABAAAAAMAAAAAAAkABAAAAAMAAAABAAoABAAAAAMAAAACAAcABAAAAAMAAAADAAYABAAAAAMAAAADAP//BAAAAAMAAAADAP7/BAAAAAMAAAACAP//BAAAAAMAAAACAP7/BAAAAAMAAAABAP//BAAAAAMAAAAEAAAABAAAAAMAAAAEAAEABAAAAAMAAAAEAAMABAAAAAMAAAAEAAUABAAAAAMAAAAEAAcABAAAAAMAAAABAAsABAAAAAMAAAAAAAsABAAAAAMAAAACAAoABAAAAAMAAAADAAoABAAAAAMAAAACAAsABAAAAAMAAAACAAwABAAAAAMAAAABAAwABAAAAAMAAAAFAAQABAAAAAMAAAAFAAIABAAAAAMAAAACAP3/BAAAAAMAAAABAP3/BAAAAAMAAAABAP7/BAAAAAMAAAD//wIABAAAAAMAAAD+/wMABAAAAAMAAAD//wYABAAAAAMAAAD//wgABAAAAAMAAAD+/wcABAAAAAMAAAD+/wUABAAAAAMAAAAFAAYABAAAAAMAAAACAA0ABAAAAAMAAAADAAwABAAAAAMAAAABAA0ABAAAAAMAAAADAAsABAAAAAMAAAAEAAoABAAAAAMAAAAEAAkABAAAAAMAAAAFAAgABAAAAAMAAAAFAAcABAAAAAMAAAAFAAUABAAAAAMAAAAFAAMABAAAAAMAAAAGAAYABAAAAAMAAAAGAAQABAAAAAMAAAA=")
 tile_set = SubResource("TileSet_2rdmk")
 
 [node name="Walls" type="Node2D" parent="World/Factory" unique_id=1686183942]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="World/Factory/Walls" unique_id=782381691]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD/////BAADAAAAAAD//wAABAADAAAAAAD+/wEABAADAAAAAAD+/wIABAADAAAAAAD+/wMABAABAAAAAAD+/wQABAADAAAAAAD+/wUABAABAAAAAAD+/wcABAABAAAAAAD//wgABAABAAAAAAD//wkABAABAAAAAAAAAAoABAABAAAAAAAAAAsABAABAAAAAAABAAwABAABAAAAAAABAA0ABAABAAAAAAAAAP7/BAADAAAAAAAAAP3/BAADAAAAAAD+/wYABAADAAAAAAABAPz/BAADAAAAAAACAPz/BAADAAAAAAADAPz/BAABAAAAAAADAP3/BAABAAAAAAAEAP7/BAABAAAAAAAEAP//BAABAAAAAAAFAAAABAABAAAAAAAFAAEABAABAAAAAAAGAAIABAABAAAAAAABAP3/BAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAD/////BAADAAAAAAD//wAABAADAAAAAAD+/wEABAADAAAAAAD+/wIABAADAAAAAAD+/wMABAABAAAAAAD+/wQABAADAAAAAAD+/wUABAABAAAAAAD+/wcABAABAAAAAAD//wgABAABAAAAAAD//wkABAABAAAAAAAAAAoABAABAAAAAAAAAAsABAABAAAAAAABAAwABAABAAAAAAABAA0ABAABAAAAAAAAAP7/BAADAAAAAAAAAP3/BAADAAAAAAD+/wYABAADAAAAAAABAPz/BAADAAAAAAACAPz/BAADAAAAAAADAPz/BAABAAAAAAADAP3/BAABAAAAAAAEAP7/BAABAAAAAAAEAP//BAABAAAAAAAFAAAABAABAAAAAAAFAAEABAABAAAAAAAGAAIABAABAAAAAAABAP3/BAACAAAAAAAGAAMABAABAAAAAAA=")
 tile_set = SubResource("TileSet_13up3")
 collision_enabled = false
 
 [node name="Machines" type="Node2D" parent="World/Factory/Walls" unique_id=1921972806]
 
-[node name="Woods" type="Node2D" parent="World/Factory/Walls/Machines" unique_id=738022909]
-
-[node name="WoodMiner" parent="World/Factory/Walls/Machines/Woods" unique_id=1124357326 instance=ExtResource("3_oonwy")]
+[node name="OreMiner" parent="World/Factory/Walls/Machines" unique_id=1124357326 instance=ExtResource("3_oonwy")]
 position = Vector2(1024, -16)
 out_item_id = "wood"
 capacity_max = 20
 
-[node name="WoodStorage" parent="World/Factory/Walls/Machines/Woods" unique_id=882234673 instance=ExtResource("4_cpkm4")]
+[node name="OreStorage" parent="World/Factory/Walls/Machines" unique_id=882234673 instance=ExtResource("4_cpkm4")]
 position = Vector2(1226, 79)
 material_type = "wood"
 
@@ -98,28 +140,135 @@ material_type = "stone"
 position = Vector2(758, 208)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=665323870]
+visible = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD" unique_id=135676803]
+[node name="Control" type="Control" parent="HUD" unique_id=367097921]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ResourceBars" type="HBoxContainer" parent="HUD/Control" unique_id=135676803]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 313.0
+offset_left = 306.0
 offset_top = 24.0
-offset_right = 282.0
+offset_right = 286.0
 offset_bottom = 66.0
 grow_horizontal = 2
 theme_override_constants/separation = 12
 
-[node name="PrimaryBar" parent="HUD/HBoxContainer" unique_id=589939091 instance=ExtResource("6_t07um")]
+[node name="PrimaryBar" parent="HUD/Control/ResourceBars" unique_id=589939091 instance=ExtResource("6_t07um")]
 layout_mode = 2
 material_type = "wood"
 
-[node name="Resource" parent="HUD/HBoxContainer" unique_id=714245166 instance=ExtResource("6_t07um")]
+[node name="Resource" parent="HUD/Control/ResourceBars" unique_id=714245166 instance=ExtResource("6_t07um")]
 layout_mode = 2
 material_type = "stone"
 
+[node name="RightButtons" type="VBoxContainer" parent="HUD/Control" unique_id=139148487]
+custom_minimum_size = Vector2(150, 300)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -348.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="Button" type="Button" parent="HUD/Control/RightButtons" unique_id=242700077]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_1liwd")
+icon = ExtResource("7_o1uvp")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button2" type="Button" parent="HUD/Control/RightButtons" unique_id=2086989153]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_sb7j8")
+icon = ExtResource("8_yuwmk")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button3" type="Button" parent="HUD/Control/RightButtons" unique_id=165718888]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 2.98
+theme_override_styles/normal = SubResource("StyleBoxFlat_hlfsw")
+icon = ExtResource("9_8fhol")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MainAction" type="Button" parent="HUD/Control" unique_id=1315752712]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = -24.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5wqhm")
+icon = ExtResource("10_mcmen")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Profile" parent="HUD/Control" unique_id=1061891824 instance=ExtResource("7_kw33e")]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 24.0
+offset_top = 24.0
+
 [node name="PopUp" type="CanvasLayer" parent="." unique_id=186393097]
+layer = 2
+visible = false
+
+[node name="UpgradeTabContainer" type="PanelContainer" parent="PopUp" unique_id=591584872]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2rdmk")
+script = ExtResource("12_8fhol")
+
+[node name="CloseArea" type="Area2D" parent="PopUp/UpgradeTabContainer" unique_id=1903556287]
+unique_name_in_owner = true
+collision_layer = 3
+collision_mask = 3
+
+[node name="CloseCollision" type="CollisionShape2D" parent="PopUp/UpgradeTabContainer/CloseArea" unique_id=1336966819]
+unique_name_in_owner = true
+position = Vector2(633.5, 360.5)
+shape = SubResource("RectangleShape2D_2rdmk")
+
+[node name="UpgradeTab" parent="PopUp/UpgradeTabContainer" unique_id=626829038 instance=ExtResource("12_yuwmk")]
+layout_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1540352229]
+visible = false
 position = Vector2(695, 313)
 zoom = Vector2(0.5, 0.5)
+
+[node name="Furnace" parent="." unique_id=1118836819 instance=ExtResource("15_3ao3o")]
+position = Vector2(-131, 161)
