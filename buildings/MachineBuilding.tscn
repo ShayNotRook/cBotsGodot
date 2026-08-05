@@ -4,8 +4,40 @@
 [ext_resource type="Script" uid="uid://bfymepmexfh6k" path="res://buildings/machine_building.gd" id="2_64i05"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2rdmk"]
-radius = 67.0
-height = 156.0
+radius = 85.0
+height = 170.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_py21g"]
+bg_color = Color(0.13451436, 0.28672606, 0.55952626, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2rdmk"]
+bg_color = Color(0.21176471, 0.22745098, 0.23137255, 0.29411766)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bakk8"]
+bg_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.20784314, 0.20784314, 0.20784314, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6rno"]
+bg_color = Color(0.061369076, 0.061369106, 0.061369054, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.20942879, 0.2094289, 0.2094287, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
 
 [node name="MachineBuilding" unique_id=1124357326 instance=ExtResource("1_q4ica")]
 script = ExtResource("2_64i05")
@@ -24,5 +56,38 @@ offset_left = 113.0
 offset_top = -46.0
 offset_right = 124.0
 offset_bottom = 46.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_py21g")
 fill_mode = 3
 show_percentage = false
+
+[node name="ButtonContainer" type="PanelContainer" parent="." index="3" unique_id=136847209]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(250, 79)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_top = 120.0
+offset_right = 31.0
+offset_bottom = 148.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2rdmk")
+
+[node name="ButtonBox" type="HBoxContainer" parent="ButtonContainer" index="0" unique_id=4673673]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="InfoButton" type="Button" parent="ButtonContainer/ButtonBox" index="0" unique_id=821050534]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_bakk8")
+text = "Info"
+
+[node name="UpButton" type="Button" parent="ButtonContainer/ButtonBox" index="1" unique_id=1783163347]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_t6rno")
+text = "Upgrade"

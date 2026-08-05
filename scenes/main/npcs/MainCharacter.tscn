@@ -319,7 +319,7 @@ height = 56.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=581544353]
 position = Vector2(-1, -133)
 sprite_frames = SubResource("SpriteFrames_2rdmk")
-animation = &"run0"
+animation = &"idle0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1485365451]
 position = Vector2(0, 42)

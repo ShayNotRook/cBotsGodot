@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c3l7b3sv7jnwd"]
+
+[ext_resource type="Texture2D" uid="uid://bpak02xu7rced" path="res://assets/back_text.png" id="1_5wqhm"]
+[ext_resource type="Texture2D" uid="uid://f1kjbpid8i2i" path="res://assets/Fill_text.png" id="2_hlfsw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2rdmk"]
+font_size = 52
+
+[node name="Profile" type="Control" unique_id=1061891824]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1180.0
+offset_bottom = -620.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1080978164]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+value = 44.0
+fill_mode = 8
+radial_initial_angle = 180.0
+texture_under = ExtResource("1_5wqhm")
+texture_progress = ExtResource("2_hlfsw")
+
+[node name="Label" type="Label" parent="." unique_id=847475323]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -49.5
+offset_right = 50.0
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+label_settings = SubResource("LabelSettings_2rdmk")
+horizontal_alignment = 1
+vertical_alignment = 1

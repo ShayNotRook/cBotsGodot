@@ -1,7 +1,7 @@
 extends Node
 
 signal resource_changed(material_id: String, value: int, percentage: float)
-
+signal upgrade_tapped
 
 var resources: Dictionary = {"wood": 0, "stone": 0}
 var max_storage: Dictionary = {"wood": 100, "stone": 100}
@@ -18,6 +18,9 @@ func add_resource(material_id: String, amount: int) -> void:
 func get_resource(material_id: String) -> int:
 	return resources.get(material_id, 0)
 
+
+func show_upgrade_tab() -> void:
+	upgrade_tapped.emit()
 
 
 # --- PLACEHOLDER: gameplay, near-term ---
