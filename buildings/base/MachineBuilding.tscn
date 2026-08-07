@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bka61j8c6f587"]
 
-[ext_resource type="PackedScene" uid="uid://drtwemp6aej32" path="res://buildings/Building.tscn" id="1_q4ica"]
-[ext_resource type="Script" uid="uid://bfymepmexfh6k" path="res://buildings/machine_building.gd" id="2_64i05"]
+[ext_resource type="PackedScene" uid="uid://drtwemp6aej32" path="res://buildings/base/Building.tscn" id="1_q4ica"]
+[ext_resource type="Script" uid="uid://bfymepmexfh6k" path="res://buildings/base/machine_building.gd" id="2_64i05"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2rdmk"]
 radius = 85.0
