@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cytrbr06u8gu8"]
 
-[ext_resource type="PackedScene" uid="uid://bka61j8c6f587" path="res://buildings/MachineBuilding.tscn" id="1_1iomf"]
+[ext_resource type="PackedScene" uid="uid://bka61j8c6f587" path="res://buildings/base/MachineBuilding.tscn" id="1_1iomf"]
 [ext_resource type="Script" uid="uid://ejpb1t8b03p4" path="res://buildings/scenes/storage.gd" id="1_3rc7f"]
 [ext_resource type="Texture2D" uid="uid://chxn4p83r3v05" path="res://assets/tilesets/factory/Storage/Tank/Medium tank/tank.png" id="2_3rc7f"]
 

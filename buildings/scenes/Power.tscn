@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dc6488taxuwwn"]
+
+[ext_resource type="PackedScene" uid="uid://bka61j8c6f587" path="res://buildings/base/MachineBuilding.tscn" id="1_loio0"]
+[ext_resource type="Texture2D" uid="uid://cjhv2pfowaxij" path="res://assets/tilesets/factory/Power/Turbine/Turbine Animation 0001.png" id="2_xt6eo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wia2c"]
+atlas = ExtResource("2_xt6eo")
+region = Rect2(0, 0, 149, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsbdi"]
+atlas = ExtResource("2_xt6eo")
+region = Rect2(149, 0, 149, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl1jg"]
+atlas = ExtResource("2_xt6eo")
+region = Rect2(298, 0, 149, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvs1p"]
+atlas = ExtResource("2_xt6eo")
+region = Rect2(447, 0, 149, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_petfh"]
+atlas = ExtResource("2_xt6eo")
+region = Rect2(596, 0, 149, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2ijr"]
+atlas = ExtResource("2_xt6eo")
+region = Rect2(745, 0, 149, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elehh"]
+atlas = ExtResource("2_xt6eo")
+region = Rect2(894, 0, 149, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ejvg"]
+atlas = ExtResource("2_xt6eo")
+region = Rect2(1043, 0, 149, 108)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2rdmk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wia2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsbdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl1jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvs1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_petfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2ijr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elehh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ejvg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="MachineBuilding" unique_id=1124357326 instance=ExtResource("1_loio0")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(1128715352) index="1" unique_id=883272986]
+position = Vector2(4.9999995, 4.9999995)
+scale = Vector2(1.4899329, 1.8333334)
+sprite_frames = SubResource("SpriteFrames_2rdmk")
+frame_progress = 0.66770154

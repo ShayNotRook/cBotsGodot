@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://m5v2kl5px7jt"]
 
-[ext_resource type="PackedScene" uid="uid://bka61j8c6f587" path="res://buildings/MachineBuilding.tscn" id="1_jbds1"]
+[ext_resource type="PackedScene" uid="uid://bka61j8c6f587" path="res://buildings/base/MachineBuilding.tscn" id="1_jbds1"]
 [ext_resource type="Script" uid="uid://c35u6nhtmt5bl" path="res://buildings/scenes/furnace.gd" id="2_4xsed"]
 [ext_resource type="Texture2D" uid="uid://dai6d0k7p10mv" path="res://assets/tilesets/factory/furnaces/furnace_three/Production-animation-2.png" id="2_o2l8v"]
 [ext_resource type="Texture2D" uid="uid://cb3udregh6a4n" path="res://assets/material/copper.webp" id="3_1dprw"]
@@ -331,6 +331,7 @@ border_color = Color(0.22382355, 0.2238236, 0.2238234, 1)
 
 [node name="Furnace" unique_id=1124357326 instance=ExtResource("1_jbds1")]
 script = ExtResource("2_4xsed")
+is_active = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" parent_id_path=PackedInt32Array(1128715352) index="1" unique_id=586032797]
 position = Vector2(-5, -25)
@@ -351,7 +352,8 @@ visible = true
 [node name="ButtonBox" parent="ButtonContainer" index="0" unique_id=4673673]
 custom_minimum_size = Vector2(350, 0)
 
-[node name="Button" type="Button" parent="ButtonContainer/ButtonBox" index="2" unique_id=1110024077]
+[node name="ItemSlotButton" type="Button" parent="ButtonContainer/ButtonBox" index="2" unique_id=1110024077]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_4xsed")
@@ -359,7 +361,7 @@ icon = ExtResource("3_1dprw")
 icon_alignment = 1
 expand_icon = true
 
-[node name="ProgressBar" type="ProgressBar" parent="ButtonContainer/ButtonBox/Button" index="0" unique_id=1705768539]
+[node name="ProgressBar" type="ProgressBar" parent="ButtonContainer/ButtonBox/ItemSlotButton" index="0" unique_id=1705768539]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -371,7 +373,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_5bwbp")
 fill_mode = 3
 show_percentage = false
 
-[node name="PanelContainer" type="PanelContainer" parent="ButtonContainer/ButtonBox/Button" index="1" unique_id=304376003]
+[node name="PanelContainer" type="PanelContainer" parent="ButtonContainer/ButtonBox/ItemSlotButton" index="1" unique_id=304376003]
+visible = false
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 0
 offset_left = -94.0
@@ -380,51 +383,51 @@ offset_right = 206.0
 offset_bottom = 198.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_b5jli")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ButtonContainer/ButtonBox/Button/PanelContainer" index="0" unique_id=1593696555]
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonContainer/ButtonBox/ItemSlotButton/PanelContainer" index="0" unique_id=1593696555]
 visible = false
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ButtonContainer/ButtonBox/Button/PanelContainer/VBoxContainer" index="0" unique_id=512253037]
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtonContainer/ButtonBox/ItemSlotButton/PanelContainer/VBoxContainer" index="0" unique_id=512253037]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.63
 
-[node name="Button" type="Button" parent="ButtonContainer/ButtonBox/Button/PanelContainer/VBoxContainer/HBoxContainer" index="0" unique_id=1438285155]
+[node name="Button" type="Button" parent="ButtonContainer/ButtonBox/ItemSlotButton/PanelContainer/VBoxContainer/HBoxContainer" index="0" unique_id=1438285155]
 layout_mode = 2
 size_flags_horizontal = 3
 icon = ExtResource("9_b5jli")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button2" type="Button" parent="ButtonContainer/ButtonBox/Button/PanelContainer/VBoxContainer/HBoxContainer" index="1" unique_id=734436762]
+[node name="Button2" type="Button" parent="ButtonContainer/ButtonBox/ItemSlotButton/PanelContainer/VBoxContainer/HBoxContainer" index="1" unique_id=734436762]
 layout_mode = 2
 size_flags_horizontal = 3
 icon = ExtResource("10_4k5n4")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button3" type="Button" parent="ButtonContainer/ButtonBox/Button/PanelContainer/VBoxContainer/HBoxContainer" index="2" unique_id=1200126923]
+[node name="Button3" type="Button" parent="ButtonContainer/ButtonBox/ItemSlotButton/PanelContainer/VBoxContainer/HBoxContainer" index="2" unique_id=1200126923]
 layout_mode = 2
 size_flags_horizontal = 3
 icon = ExtResource("3_1dprw")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button4" type="Button" parent="ButtonContainer/ButtonBox/Button/PanelContainer/VBoxContainer/HBoxContainer" index="3" unique_id=1808342760]
+[node name="Button4" type="Button" parent="ButtonContainer/ButtonBox/ItemSlotButton/PanelContainer/VBoxContainer/HBoxContainer" index="3" unique_id=1808342760]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_sju2i")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button5" type="Button" parent="ButtonContainer/ButtonBox/Button/PanelContainer/VBoxContainer/HBoxContainer" index="4" unique_id=140341833]
+[node name="Button5" type="Button" parent="ButtonContainer/ButtonBox/ItemSlotButton/PanelContainer/VBoxContainer/HBoxContainer" index="4" unique_id=140341833]
 layout_mode = 2
 size_flags_horizontal = 3
 icon_alignment = 1
 expand_icon = true
 
-[node name="HSlider" type="HSlider" parent="ButtonContainer/ButtonBox/Button/PanelContainer/VBoxContainer" index="1" unique_id=1584505704]
+[node name="HSlider" type="HSlider" parent="ButtonContainer/ButtonBox/ItemSlotButton/PanelContainer/VBoxContainer" index="1" unique_id=1584505704]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
